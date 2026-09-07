@@ -1,0 +1,46 @@
+<nav class="navbar navbar-expand">
+
+  <a class="navbar-brand fw-bold" routerLink="/home">
+    🛒 SmartCart
+  </a>
+
+  <div class="navbar-nav ms-auto">
+
+    <a
+      class="nav-link"
+      routerLink="/home"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }">
+      Home
+    </a>
+
+    <a
+      class="nav-link"
+      routerLink="/products"
+      routerLinkActive="active">
+      Products
+    </a>
+
+    <a
+      class="nav-link"
+      routerLink="/cart"
+      routerLinkActive="active">
+      🛒 Cart
+    </a>
+
+    <a
+      class="nav-link"
+      routerLink="/orders"
+      routerLinkActive="active">
+      Orders
+    </a>
+
+    <button
+      (click)="logout()"
+      class="logout-btn">
+      Logout
+    </button>
+
+  </div>
+
+</nav>

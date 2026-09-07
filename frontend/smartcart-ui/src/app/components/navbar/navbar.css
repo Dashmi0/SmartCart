@@ -1,0 +1,110 @@
+.navbar {
+  background-color: #0F172A !important;
+  padding: 12px 25px;
+}
+
+
+/* SmartCart logo */
+
+.navbar-brand {
+  color: white !important;
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+
+/* Navigation links */
+
+.nav-link {
+  color: #E2E8F0 !important;
+
+  margin-left: 12px;
+
+  padding: 8px 12px !important;
+
+  font-weight: 500;
+
+  border-radius: 6px;
+
+  transition: 0.2s;
+}
+
+
+/* Hover */
+
+.nav-link:hover {
+  color: #60A5FA !important;
+
+  background-color: #1E293B;
+}
+
+
+/* Active page */
+
+.nav-link.active {
+  color: #60A5FA !important;
+
+  background-color: #1E293B;
+
+  font-weight: 600;
+}
+
+
+/* Logout button */
+
+.logout-btn {
+  margin-left: 15px;
+
+  border: none;
+
+  background-color: #EF4444;
+
+  color: white;
+
+  padding: 8px 18px;
+
+  border-radius: 6px;
+
+  font-weight: 500;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+
+.logout-btn:hover {
+  background-color: #DC2626;
+}
+
+
+/* Mobile */
+
+@media (max-width: 700px) {
+
+  .navbar {
+    padding: 10px 15px;
+  }
+
+  .navbar-brand {
+    font-size: 20px;
+  }
+
+  .nav-link {
+    margin-left: 4px;
+
+    padding: 6px 8px !important;
+
+    font-size: 14px;
+  }
+
+  .logout-btn {
+    margin-left: 5px;
+
+    padding: 6px 12px;
+
+    font-size: 14px;
+  }
+
+}

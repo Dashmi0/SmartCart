@@ -1,0 +1,46 @@
+.card {
+    border-radius: 15px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+/* Product Image */
+.cart-image {
+    width: 150px;
+    height: 150px;
+    object-fit: contain;
+}
+
+/* Product Name */
+.card h4 {
+    font-size: 1.7rem;
+    font-weight: bold;
+}
+
+/* Price */
+.text-success {
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+/* Quantity and Total */
+.card p,
+.card h6 {
+    font-size: 1.2rem;
+}
+
+/* Remove Button */
+.btn-outline-danger {
+    width: 130px;
+    font-size: 1rem;
+}
+
+/* Grand Total */
+.text-end h3 {
+    font-size: 2rem;
+    font-weight: bold;
+}

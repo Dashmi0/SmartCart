@@ -1,0 +1,37 @@
+<div class="container mt-4">
+
+  <h2 class="text-center mb-4">📦 My Orders</h2>
+
+  <div class="card shadow mb-3" *ngFor="let order of orders">
+
+    <div class="card-body">
+
+      <h4>Order #{{ order.id }}</h4>
+
+      <p>
+        <strong>Total Amount:</strong>
+        ₹{{ order.total_amount }}
+      </p>
+
+      <p>
+        <strong>Status:</strong>
+
+        <span
+          class="badge bg-warning text-dark"
+          *ngIf="order.status == 'Pending'">
+          Pending
+        </span>
+
+        <span
+          class="badge bg-success"
+          *ngIf="order.status == 'Delivered'">
+          Delivered
+        </span>
+
+      </p>
+
+    </div>
+
+  </div>
+
+</div>

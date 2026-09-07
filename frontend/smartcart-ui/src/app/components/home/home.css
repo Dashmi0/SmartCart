@@ -1,0 +1,260 @@
+.home-container {
+  min-height: 100vh;
+  background: #f8fafc;
+  color: #172033;
+}
+
+
+/* =========================
+   HERO SECTION
+========================= */
+
+.hero {
+  min-height: 450px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  text-align: center;
+
+  padding: 60px 20px;
+
+  background: #eaf3ff;
+}
+
+.hero-content {
+  max-width: 750px;
+}
+
+.hero h1 {
+  font-size: 50px;
+  font-weight: 700;
+
+  margin-bottom: 20px;
+}
+
+.hero p {
+  font-size: 20px;
+  color: #5f6b7a;
+
+  line-height: 1.6;
+
+  margin-bottom: 30px;
+}
+
+
+/* Shop button */
+
+.shop-btn {
+  background: #2563eb;
+  color: white;
+
+  border: none;
+  border-radius: 6px;
+
+  padding: 13px 30px;
+
+  font-size: 17px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.2s;
+}
+
+.shop-btn:hover {
+  background: #1d4ed8;
+}
+
+
+/* =========================
+   QUICK ACTION SECTION
+========================= */
+
+.quick-section {
+  max-width: 1100px;
+
+  margin: auto;
+
+  padding: 60px 25px;
+}
+
+.quick-section h2 {
+  text-align: center;
+
+  font-size: 32px;
+
+  margin-bottom: 40px;
+}
+
+
+/* Cards */
+
+.cards {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 25px;
+}
+
+.quick-card {
+  background: white;
+
+  border: 1px solid #e2e8f0;
+
+  border-radius: 10px;
+
+  padding: 30px;
+
+  text-align: center;
+
+  transition: 0.2s;
+}
+
+.quick-card:hover {
+  transform: translateY(-5px);
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+
+/* Card icon */
+
+.icon {
+  font-size: 40px;
+
+  margin-bottom: 15px;
+}
+
+.quick-card h3 {
+  font-size: 22px;
+
+  margin-bottom: 10px;
+}
+
+.quick-card p {
+  color: #64748b;
+
+  margin-bottom: 20px;
+
+  line-height: 1.5;
+}
+
+
+/* Card buttons */
+
+.quick-card button {
+  background: #2563eb;
+
+  color: white;
+
+  border: none;
+  border-radius: 5px;
+
+  padding: 10px 22px;
+
+  font-size: 15px;
+
+  cursor: pointer;
+}
+
+.quick-card button:hover {
+  background: #1d4ed8;
+}
+
+
+/* =========================
+   FEATURES
+========================= */
+
+.features {
+  max-width: 1100px;
+
+  margin: auto;
+
+  padding: 10px 25px 70px;
+
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 25px;
+}
+
+.features div {
+  background: white;
+
+  border: 1px solid #e2e8f0;
+
+  border-radius: 10px;
+
+  padding: 25px;
+
+  text-align: center;
+}
+
+.features span {
+  display: block;
+
+  font-size: 32px;
+
+  margin-bottom: 10px;
+}
+
+.features h3 {
+  font-size: 18px;
+
+  margin-bottom: 8px;
+}
+
+.features p {
+  color: #64748b;
+
+  margin: 0;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 800px) {
+
+  .hero h1 {
+    font-size: 40px;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .features {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+@media (max-width: 500px) {
+
+  .hero {
+    min-height: 400px;
+
+    padding: 40px 20px;
+  }
+
+  .hero h1 {
+    font-size: 32px;
+  }
+
+  .hero p {
+    font-size: 17px;
+  }
+
+  .quick-section h2 {
+    font-size: 27px;
+  }
+
+}

@@ -1,0 +1,37 @@
+<div class="container mt-5" style="max-width:500px;">
+
+  <div class="card shadow">
+
+    <div class="card-body">
+
+      <h2 class="text-center mb-4">
+        Create Account
+      </h2>
+
+      <input
+        class="form-control mb-3"
+        placeholder="Name"
+        [(ngModel)]="user.name">
+
+      <input
+        class="form-control mb-3"
+        placeholder="Email"
+        [(ngModel)]="user.email">
+
+      <input
+        type="password"
+        class="form-control mb-3"
+        placeholder="Password"
+        [(ngModel)]="user.password">
+
+      <button
+        class="btn btn-primary w-100"
+        (click)="register()">
+        Register
+      </button>
+
+    </div>
+
+  </div>
+
+</div>
