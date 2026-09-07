@@ -1,49 +1,85 @@
-# 🛒 SmartCart
+# 🛒 SmartCart — Full-Stack E-Commerce Application
 
-**SmartCart** is a full-stack e-commerce web application developed to provide users with a complete online shopping experience.
+SmartCart is a **full-stack e-commerce web application** that provides users with a complete online shopping experience. Users can register and log in, browse and search products, filter products by category, manage their shopping cart, place orders, and view their previous orders.
 
-The application allows users to register and log in, browse products, search and filter products by category, add products to a shopping cart, increase or decrease product quantities, remove items, view the total cart price, place orders, and view their previous orders.
+The project demonstrates the integration of a **modern frontend, REST API backend, authentication system, and relational database**.
 
-## 🚀 Features
+---
 
-* User registration and login
+## 🚀 Project Highlights
+
+* 🔐 User registration and authentication
+* 🛍️ Product browsing, searching, and category filtering
+* 🛒 Complete shopping cart management
+* 📦 Order placement and order history
+* 🔑 Secure password hashing using bcrypt
+* 🔄 REST API communication between frontend and backend
+* 🗄️ Persistent data storage using MySQL
+* 🏗️ Full-stack architecture using Angular + FastAPI + MySQL
+
+---
+
+## ✨ Features
+
+### 👤 User Management
+
+* User registration
+* User login
+* Authentication
 * Secure password hashing using bcrypt
-* User authentication
+* Protected frontend routes
+
+### 🛍️ Product Management
+
 * Browse available products
 * Search products
 * Filter products by category
+* Display product information and images
+
+### 🛒 Shopping Cart
+
 * Add products to cart
-* Increase or decrease product quantities
+* Increase product quantity
+* Decrease product quantity
 * Remove products from cart
 * Calculate total cart price
-* Place orders
-* View previous orders
-* REST API communication between frontend and backend
-* Persistent data storage using MySQL
 
-## 🏗️ Project Architecture
+### 📦 Order Management
+
+* Place orders
+* Store order information
+* View previous orders
+
+---
+
+## 🏗️ System Architecture
 
 ```text
-                    SmartCart
-                        │
-          ┌─────────────┴─────────────┐
-          │                           │
-     Angular Frontend            FastAPI Backend
-          │                           │
-          │       HTTP/REST API       │
-          └─────────────┬─────────────┘
-                        │
-                    SQLAlchemy
-                        │
-                        ▼
-                     MySQL
+                         SmartCart
+                            │
+             ┌──────────────┴──────────────┐
+             │                             │
+      Angular Frontend              FastAPI Backend
+             │                             │
+             │        HTTP / REST API      │
+             └──────────────┬──────────────┘
+                            │
+                       SQLAlchemy
+                            │
+                            ▼
+                         MySQL
 ```
 
 The application follows a three-layer architecture:
 
 **Frontend → Backend/API → Database**
 
-The Angular frontend handles the user interface and user interactions. The FastAPI backend processes requests and implements the application's business logic. MySQL permanently stores application data.
+* **Angular** handles the user interface and user interactions.
+* **FastAPI** processes requests and implements backend logic.
+* **SQLAlchemy** provides the ORM layer between Python and MySQL.
+* **MySQL** stores application data persistently.
+
+---
 
 ## 🛠️ Technologies Used
 
@@ -68,11 +104,13 @@ The Angular frontend handles the user interface and user interactions. The FastA
 
 * MySQL
 
-### Development Tools
+### Tools
 
 * Git
 * GitHub
 * Visual Studio Code
+
+---
 
 ## 📁 Project Structure
 
@@ -86,14 +124,13 @@ SmartCart/
 │   │   ├── orders.py
 │   │   ├── products.py
 │   │   └── users.py
+│   │
 │   ├── auth.py
 │   ├── crud.py
 │   ├── database.py
 │   ├── main.py
 │   ├── models.py
 │   └── schemas.py
-│
-├── database/
 │
 ├── frontend/
 │   └── smartcart-ui/
@@ -108,8 +145,10 @@ SmartCart/
 │       │       │   ├── orders/
 │       │       │   ├── products/
 │       │       │   └── register/
+│       │       │
 │       │       ├── guards/
 │       │       └── services/
+│       │
 │       ├── angular.json
 │       ├── package.json
 │       └── tsconfig.json
@@ -118,19 +157,23 @@ SmartCart/
 └── README.md
 ```
 
-## 🔐 Authentication
+---
+
+## 🔐 Authentication & Security
 
 SmartCart provides user registration and login functionality.
 
-Passwords are not stored as plain text. **Passlib with bcrypt** is used to hash passwords before they are stored in the database and to verify passwords during login.
+Passwords are **not stored as plain text**. Passlib with bcrypt is used to hash passwords before they are stored in the database and to verify passwords during login.
 
-Authentication-related functionality is handled by the FastAPI backend.
+Authentication functionality is handled by the FastAPI backend, while Angular route guards are used to protect frontend routes.
 
-## 🔄 How the Application Works
+> **Security Note:** Database credentials and other sensitive information should be kept out of the GitHub repository.
+
+---
+
+## 🔄 How SmartCart Works
 
 ### 1. User Registration
-
-A new user enters their registration details through the Angular frontend.
 
 ```text
 Angular Registration Form
@@ -139,35 +182,35 @@ Angular Registration Form
           ↓
       FastAPI API
           ↓
-   Password Hashing
+   Validate User Data
+          ↓
+    Hash Password
           ↓
         MySQL
 ```
 
 ### 2. User Login
 
-The user provides their credentials through the login page.
-
 ```text
 Angular Login
-     ↓
+      ↓
 FastAPI Authentication API
-     ↓
-Verify Password
-     ↓
+      ↓
+Verify Credentials
+      ↓
 Authentication Successful
 ```
 
 ### 3. Product Browsing
 
-The Angular frontend requests product information from the FastAPI backend.
-
 ```text
 Angular
    ↓
-GET /products/
+HTTP Request
    ↓
 FastAPI
+   ↓
+SQLAlchemy
    ↓
 MySQL
    ↓
@@ -180,17 +223,43 @@ Angular Product Page
 
 Users can add products to their cart, modify quantities, remove products, and view the total price.
 
-The Angular frontend sends cart requests to the FastAPI backend, while the backend communicates with MySQL to store and retrieve cart information.
+```text
+Angular Cart
+     ↓
+FastAPI Cart API
+     ↓
+SQLAlchemy
+     ↓
+MySQL
+     ↓
+Updated Cart
+```
 
 ### 5. Order Placement
 
-When the user places an order, the backend processes the order and stores the required order information in MySQL.
+When a user places an order:
 
-Users can later retrieve and view their previous orders.
+```text
+Shopping Cart
+      ↓
+Place Order
+      ↓
+FastAPI Orders API
+      ↓
+SQLAlchemy
+      ↓
+MySQL
+      ↓
+Order Stored
+      ↓
+Order History
+```
+
+---
 
 ## 🗄️ Database
 
-MySQL is used as the persistent database for SmartCart.
+SmartCart uses **MySQL** as its relational database.
 
 The application stores information related to:
 
@@ -199,111 +268,128 @@ The application stores information related to:
 * Cart items
 * Orders
 
-**SQLAlchemy** is used as the Object-Relational Mapping (ORM) layer between the Python application and MySQL. This allows the backend to work with database records using Python objects and SQLAlchemy models.
+**SQLAlchemy** is used as the Object-Relational Mapping (ORM) layer between Python and MySQL.
 
-**Pydantic** is used to validate and structure data received through the FastAPI APIs.
+**Pydantic** is used to validate and structure data exchanged through the FastAPI APIs.
+
+The actual MySQL database is maintained separately from the GitHub source code.
+
+---
 
 ## 🔌 Backend API
 
-The FastAPI backend provides REST APIs for different parts of the application.
+The FastAPI backend is organized into separate routers for different application functionalities.
 
-| Module         | Purpose                                     |
-| -------------- | ------------------------------------------- |
-| Users          | Registration and user-related operations    |
-| Products       | Product retrieval and management            |
-| Cart           | Cart operations and quantity management     |
-| Orders         | Order creation and previous-order retrieval |
-| Authentication | Login and password verification             |
+| Module         | Purpose                                  |
+| -------------- | ---------------------------------------- |
+| Users          | Registration and user-related operations |
+| Products       | Product retrieval and management         |
+| Cart           | Cart operations and quantity management  |
+| Orders         | Order creation and order history         |
+| Authentication | Login and password verification          |
 
-The backend server is run using **Uvicorn**.
-
-## ⚙️ Installation and Setup
-
-### Prerequisites
-
-Install the following before running the project:
-
-* Python
-* Node.js and npm
-* Angular CLI
-* MySQL
-* Git
-
-### Backend Setup
-
-Navigate to the backend directory:
-
-```bash
-cd backend
-```
-
-Create a Python virtual environment:
-
-```bash
-python -m venv venv
-```
-
-Activate the virtual environment on Windows:
-
-```powershell
-.\venv\Scripts\activate
-```
-
-Install the required Python packages:
-
-```bash
-pip install -r requirements.txt
-```
-
-Configure your MySQL database and database connection settings.
-
-Start the FastAPI server:
-
-```bash
-uvicorn main:app --reload
-```
-
-The backend will normally be available at:
-
-```text
-http://127.0.0.1:8000
-```
-
-FastAPI also provides interactive API documentation at:
+FastAPI provides interactive API documentation through Swagger UI:
 
 ```text
 http://127.0.0.1:8000/docs
 ```
 
+---
+
+## ⚙️ Installation & Setup
+
+### Prerequisites
+
+Install the following:
+
+* Python 3.x
+* Node.js
+* npm
+* Angular CLI
+* MySQL
+* Git
+
+---
+
+### Backend Setup
+
+Navigate to the backend:
+
+```powershell
+cd backend
+```
+
+Create a virtual environment:
+
+```powershell
+python -m venv venv
+```
+
+Activate it on Windows:
+
+```powershell
+.\venv\Scripts\activate
+```
+
+Install the backend dependencies:
+
+```powershell
+pip install fastapi uvicorn sqlalchemy pymysql python-jose passlib[bcrypt] python-multipart email-validator
+```
+
+Configure your MySQL database connection in `database.py`.
+
+Start the FastAPI server:
+
+```powershell
+uvicorn main:app --reload
+```
+
+Backend:
+
+```text
+http://127.0.0.1:8000
+```
+
+API documentation:
+
+```text
+http://127.0.0.1:8000/docs
+```
+
+---
+
 ### Frontend Setup
 
-Open another terminal and navigate to the Angular project:
+Open another terminal and navigate to:
 
-```bash
+```powershell
 cd frontend/smartcart-ui
 ```
 
-Install the frontend dependencies:
+Install dependencies:
 
-```bash
+```powershell
 npm install
 ```
 
 Start the Angular development server:
 
-```bash
+```powershell
 ng serve
 ```
 
-The frontend will normally be available at:
+Frontend:
 
 ```text
 http://localhost:4200
 ```
 
+---
+
 ## 🔗 Frontend–Backend Communication
 
-The Angular frontend communicates with the FastAPI backend through HTTP requests.
+The Angular frontend communicates with the FastAPI backend through HTTP/REST APIs.
 
 ```text
 User
@@ -312,7 +398,7 @@ Angular UI
  ↓
 Angular Services
  ↓
-HTTP/REST API
+HTTP / REST API
  ↓
 FastAPI
  ↓
@@ -321,42 +407,68 @@ SQLAlchemy
 MySQL
 ```
 
-The backend sends the requested data back through the API, and Angular updates the user interface.
+The backend returns the requested data through the API, and Angular updates the user interface accordingly.
+
+---
+
+## 📸 Screenshots
+
+Screenshots of the application can be added here.
+
+### 🏠 Home Page
+
+*Add screenshot here*
+
+### 🛍️ Products Page
+
+*Add screenshot here*
+
+### 🛒 Shopping Cart
+
+*Add screenshot here*
+
+### 📦 Orders Page
+
+*Add screenshot here*
+
+---
 
 ## 🎯 Learning Outcomes
 
-Through SmartCart, the project demonstrates practical understanding of:
+This project demonstrates practical experience with:
 
 * Full-stack web development
 * Angular component-based development
 * TypeScript
-* REST API development
-* FastAPI
 * Python backend development
+* FastAPI REST API development
+* REST API integration
 * SQLAlchemy ORM
 * MySQL database integration
-* Authentication
-* Password hashing
-* API communication
 * CRUD operations
+* User authentication
+* Password hashing
+* Pydantic validation
 * Frontend–backend integration
 * Git and GitHub
 
+---
+
 ## 🔮 Future Improvements
 
-Possible future improvements include:
+* 💳 Online payment integration
+* 👨‍💼 Admin dashboard
+* ⭐ Product reviews and ratings
+* ❤️ Wishlist functionality
+* 🤖 Personalized product recommendations
+* 🔎 Advanced search
+* 📦 Order status tracking
+* 📧 Email notifications
+* ☁️ Cloud deployment
+* 🧪 Automated testing
+* 🔒 Improved authorization and security
 
-* Online payment integration
-* Admin dashboard
-* Product reviews and ratings
-* Wishlist functionality
-* Product recommendations
-* Improved search functionality
-* Order status tracking
-* Email notifications
-* Deployment to cloud platforms
-* Automated testing
-* Improved security and authorization
+---
 
 ## 👩‍💻 Author
 
@@ -365,3 +477,7 @@ Possible future improvements include:
 CSE Student — National Institute of Technology Manipur
 
 GitHub: [@Dashmi0](https://github.com/Dashmi0)
+
+---
+
+⭐ If you find this project interesting, consider giving it a star!
